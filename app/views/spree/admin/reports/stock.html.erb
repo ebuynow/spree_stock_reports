@@ -1,0 +1,35 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:stock, scope: :stock_reports) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= link_to_with_icon 'icon-arrow-left', Spree.t(:back_to_reports_list), spree.admin_reports_url, class: 'button' %></li>
+<% end %>
+
+
+<% content_for :table_filter_title do %>
+  <%= Spree.t(:filter) %>
+<% end %>
+
+<% content_for :table_filter do %>
+  <%= render partial: 'spree/admin/reports/stock_criteria', locals: {} %>
+<% end %>
+
+<table class="admin-report" data-hook="stock">
+  <thead>
+    <tr>
+      <th><%= Spree.t(:sku) %></th>
+      <th><%= Spree.t(:stock_location) %></th>
+      <th><%= Spree.t(:count_on_hand) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stock_items.each do |stock_item| %>
+      <tr>
+        <td><%= stock_item.variant.sku %></td>
+        <td><%= stock_item.stock_location.name %></td>
+        <td><%= stock_item.count_on_hand %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

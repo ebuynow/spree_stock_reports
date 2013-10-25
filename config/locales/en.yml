@@ -1,0 +1,5 @@
+en:
+  spree:
+    stock_reports:
+      stock: Stock
+      stock_description: A report with an overview of stock amounts for all variants

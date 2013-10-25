@@ -1,0 +1,16 @@
+<%= search_form_for @search, url: spree.stock_admin_reports_path do |s| %>
+  <div class="field align-center">
+    <%= label_tag nil, Spree.t(:count_on_hand), class: 'inline' %>
+    <%= s.text_field :count_on_hand_gteq %>
+
+    <span class="range-divider">
+      <i class="icon-arrow-right"></i>
+    </span>
+
+    <%= s.text_field :count_on_hand_lteq %>
+  </div>
+
+  <div class="actions filter-actions">
+    <%= button Spree.t(:search), 'icon-search'  %>
+  </div>
+<% end %>
