@@ -15,4 +15,4 @@ Spree::Admin::ReportsController.class_eval do
   end
 end
 
-Spree::Admin::ReportsController::AVAILABLE_REPORTS[:stock] = { name: Spree.t(:stock, scope: :stock_reports), description: Spree.t(:stock_description, scope: :stock_reports) }
+Spree::Admin::ReportsController.add_available_report!(:stock)
